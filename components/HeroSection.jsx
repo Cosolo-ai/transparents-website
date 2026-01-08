@@ -16,7 +16,7 @@ export const HeroSection = (props) => {
                         <img src="/logo.png" alt="TransPARENT's" />
                     </div>
                     <div className="hero-brand-text">
-                        <span className="brand-name">TransPARENT's</span>
+                        <span className="brand-name">TransPARENT&apos;s</span>
                         <span className="brand-tagline">Coursier & Colis Express</span>
                     </div>
                 </div>
