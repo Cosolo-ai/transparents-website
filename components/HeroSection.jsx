@@ -17,7 +17,7 @@ export const HeroSection = (props) => {
                     </div>
                     <div className="hero-brand-text">
                         <span className="brand-name">TransPARENT&apos;s</span>
-                        <span className="brand-tagline">Coursier & Colis Express</span>
+                        <span className="brand-tagline">Votre coursier express de confiance</span>
                     </div>
                 </div>
 
