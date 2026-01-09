@@ -1,0 +1,40 @@
+# TransPARENT's Robots.txt
+# https://transparents.city
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://transparents.city/sitemap.xml
+
+# Crawl-delay for polite bots
+Crawl-delay: 1
+
+# Allow AI crawlers for GEO (Generative Engine Optimization)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
