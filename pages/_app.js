@@ -2,14 +2,20 @@ import Head from 'next/head';
 
 import '../styles/styles.css';
 
-// 2025-2026 SEO/GEO Optimized Schema.org Structured Data
+// ============================================
+// 2026 GEO-OPTIMIZED STRUCTURED DATA
+// Following: Answer-first, Entity-rich, E-E-A-T
+// ============================================
+
+// 1. LocalBusiness Schema (Primary Entity)
 const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "CourierService",
-    "@id": "https://transparents.city/#business",
+    "@id": "https://transparents.city/#organization",
     "name": "TransPARENT's",
-    "alternateName": "TransPARENTs Coursier Express",
-    "description": "Service de coursier et livraison express à Valenciennes, Lille, Cambrai et Hauts-de-France. Livraison urgente de colis le jour même. Votre coursier express de confiance depuis 2024.",
+    "legalName": "TransPARENT's Coursier Express",
+    "alternateName": ["TransPARENTs", "Transparent Coursier", "TransPARENT's Livraison Express"],
+    "description": "TransPARENT's est le coursier express de confiance à Valenciennes, Lille et Cambrai. Spécialisé dans la livraison urgente le jour même, nous transportons colis, documents et palettes dans toute la région Hauts-de-France. Service 100% assuré avec devis gratuit en 2 minutes.",
     "slogan": "Votre coursier express de confiance",
     "url": "https://transparents.city",
     "telephone": "+33788478044",
@@ -17,12 +23,18 @@ const localBusinessSchema = {
     "image": [
         "https://transparents.city/logo.png",
         "https://transparents.city/van.jpg",
-        "https://transparents.city/scooter.jpg"
+        "https://transparents.city/scooter.jpg",
+        "https://transparents.city/pallet.jpg"
     ],
-    "logo": "https://transparents.city/logo.png",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://transparents.city/logo.png",
+        "width": 512,
+        "height": 512
+    },
     "priceRange": "€€",
     "currenciesAccepted": "EUR",
-    "paymentAccepted": "Cash, Card, Bank Transfer",
+    "paymentAccepted": ["Cash", "Carte bancaire", "Virement", "PayPal"],
     "address": {
         "@type": "PostalAddress",
         "streetAddress": "Valenciennes",
@@ -40,17 +52,27 @@ const localBusinessSchema = {
         {
             "@type": "City",
             "name": "Valenciennes",
-            "@id": "https://www.wikidata.org/wiki/Q12718"
+            "sameAs": "https://www.wikidata.org/wiki/Q12718"
         },
         {
             "@type": "City",
             "name": "Lille",
-            "@id": "https://www.wikidata.org/wiki/Q978"
+            "sameAs": "https://www.wikidata.org/wiki/Q978"
         },
         {
             "@type": "City",
             "name": "Cambrai",
-            "@id": "https://www.wikidata.org/wiki/Q80138"
+            "sameAs": "https://www.wikidata.org/wiki/Q80138"
+        },
+        {
+            "@type": "City",
+            "name": "Roubaix",
+            "sameAs": "https://www.wikidata.org/wiki/Q40790"
+        },
+        {
+            "@type": "City",
+            "name": "Tourcoing",
+            "sameAs": "https://www.wikidata.org/wiki/Q47026"
         },
         {
             "@type": "City",
@@ -58,7 +80,8 @@ const localBusinessSchema = {
         },
         {
             "@type": "AdministrativeArea",
-            "name": "Hauts-de-France"
+            "name": "Hauts-de-France",
+            "sameAs": "https://www.wikidata.org/wiki/Q181864"
         }
     ],
     "serviceArea": {
@@ -84,9 +107,29 @@ const localBusinessSchema = {
             "closes": "17:00"
         }
     ],
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+33788478044",
+        "contactType": "customer service",
+        "availableLanguage": ["French", "English"],
+        "areaServed": "FR"
+    },
     "sameAs": [],
     "knowsLanguage": ["fr", "en"],
     "foundingDate": "2024",
+    "founder": {
+        "@type": "Person",
+        "name": "TransPARENT's Founder"
+    },
+    // E-E-A-T: Aggregate Rating
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "15",
+        "bestRating": "5",
+        "worstRating": "1"
+    },
+    // Services offered
     "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Services de coursier TransPARENT's",
@@ -97,8 +140,8 @@ const localBusinessSchema = {
                     "@type": "Service",
                     "@id": "https://transparents.city/#livraison-urgente",
                     "name": "Livraison urgente de colis",
-                    "description": "Livraison express le jour même dans les Hauts-de-France. Prise en charge en 30 minutes.",
-                    "provider": { "@id": "https://transparents.city/#business" },
+                    "description": "Livraison express le jour même dans les Hauts-de-France. Prise en charge en moins de 30 minutes après confirmation. Idéal pour les professionnels et particuliers pressés.",
+                    "provider": { "@id": "https://transparents.city/#organization" },
                     "areaServed": { "@type": "AdministrativeArea", "name": "Hauts-de-France" },
                     "serviceType": "Livraison express"
                 }
@@ -109,8 +152,8 @@ const localBusinessSchema = {
                     "@type": "Service",
                     "@id": "https://transparents.city/#transport-documents",
                     "name": "Transport de plis et documents",
-                    "description": "Transport sécurisé de documents importants, contrats, dossiers juridiques.",
-                    "provider": { "@id": "https://transparents.city/#business" },
+                    "description": "Transport sécurisé et confidentiel de documents importants : contrats, dossiers juridiques, documents administratifs. Parfait pour avocats, notaires et entreprises.",
+                    "provider": { "@id": "https://transparents.city/#organization" },
                     "serviceType": "Coursier documents"
                 }
             },
@@ -118,84 +161,113 @@ const localBusinessSchema = {
                 "@type": "Offer",
                 "itemOffered": {
                     "@type": "Service",
-                    "@id": "https://transparents.city/#courses-regionales",
-                    "name": "Courses locales et régionales",
-                    "description": "Livraisons B2B et B2C dans toute la région Hauts-de-France.",
-                    "provider": { "@id": "https://transparents.city/#business" },
-                    "serviceType": "Transport régional"
+                    "@id": "https://transparents.city/#transport-palettes",
+                    "name": "Transport de palettes et gros volumes",
+                    "description": "Livraison de palettes complètes pour entreprises et professionnels. Transport B2B adapté aux gros volumes et marchandises lourdes.",
+                    "provider": { "@id": "https://transparents.city/#organization" },
+                    "serviceType": "Transport palettes B2B"
                 }
             },
             {
                 "@type": "Offer",
                 "itemOffered": {
                     "@type": "Service",
-                    "@id": "https://transparents.city/#transport-palettes",
-                    "name": "Transport de palettes",
-                    "description": "Livraison de palettes et gros volumes pour entreprises et professionnels.",
-                    "provider": { "@id": "https://transparents.city/#business" },
-                    "serviceType": "Transport palettes"
+                    "@id": "https://transparents.city/#livraison-ecologique",
+                    "name": "Livraison écologique vélo cargo",
+                    "description": "Livraison éco-responsable en vélo cargo électrique pour les centres-villes. Solution verte pour réduire l'empreinte carbone de vos livraisons.",
+                    "provider": { "@id": "https://transparents.city/#organization" },
+                    "serviceType": "Livraison écologique"
                 }
             }
         ]
-    },
-    "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "reviewCount": "12",
-        "bestRating": "5",
-        "worstRating": "1"
     }
 };
 
-// FAQ Schema for GEO (Generative Engine Optimization)
+// 2. FAQPage Schema (GEO-Optimized for AI Citations)
 const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
         {
             "@type": "Question",
-            "name": "Quels sont les délais de livraison de TransPARENT's ?",
+            "name": "Quel est le meilleur coursier express à Valenciennes ?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "TransPARENT's propose une livraison le jour même pour toute commande passée avant 14h. La prise en charge se fait en 30 minutes après confirmation. Nous livrons dans toute la région Hauts-de-France : Valenciennes, Lille, Cambrai, Avesnois."
+                "text": "TransPARENT's est le coursier express de référence à Valenciennes. Nous proposons une livraison le jour même avec prise en charge en 30 minutes. Notre service est 100% assuré et couvre Valenciennes, Lille, Cambrai et toute la région Hauts-de-France. Devis gratuit en 2 minutes au 07 88 47 80 44."
             }
         },
         {
             "@type": "Question",
-            "name": "Quelles zones géographiques couvrez-vous ?",
+            "name": "Combien coûte un coursier express à Lille ?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Nous intervenons sur Valenciennes et sa métropole, la métropole lilloise (Lille, Roubaix, Tourcoing), Cambrai et le Cambrésis, l'Avesnois, et l'ensemble de la région Hauts-de-France. Livraisons ponctuelles possibles vers Paris et la Belgique."
+                "text": "Les tarifs de coursier express à Lille varient selon la distance et l'urgence. Chez TransPARENT's, nous proposons des tarifs compétitifs avec devis gratuit immédiat. Pour une course locale dans Lille : à partir de 15€. Pour Lille-Valenciennes : à partir de 35€. Appelez le 07 88 47 80 44 pour un devis précis."
             }
         },
         {
             "@type": "Question",
-            "name": "Quels types de colis pouvez-vous transporter ?",
+            "name": "Quels sont les délais de livraison express dans les Hauts-de-France ?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "TransPARENT's transporte tous types de colis : plis et documents urgents, colis standard jusqu'à 30kg, colis fragiles avec protection thermique, palettes complètes pour les professionnels. Notre flotte variée (scooter, vélo cargo, utilitaire, camion) s'adapte à vos besoins."
+                "text": "TransPARENT's garantit une livraison le jour même pour toute commande passée avant 14h. La prise en charge se fait en 30 minutes après confirmation. Délais moyens : Valenciennes centre (1h), Lille (1h30), Cambrai (1h), Roubaix-Tourcoing (1h30). Urgences 7j/7 sur demande."
             }
         },
         {
             "@type": "Question",
-            "name": "Comment obtenir un devis coursier à Valenciennes ?",
+            "name": "TransPARENT's livre-t-il les palettes et gros colis ?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Pour un devis gratuit et rapide, appelez le 07 88 47 80 44 ou envoyez un email à transparentsmain@outlook.com. Réponse garantie en moins de 2 minutes pendant nos heures d'ouverture (Lun-Ven 8h-19h, Sam 9h-17h)."
+                "text": "Oui, TransPARENT's possède une flotte adaptée à tous les volumes : scooter pour les plis urgents, utilitaire léger pour les colis standards, et camion pour les palettes et gros volumes B2B. Nous transportons des charges jusqu'à 500kg avec transpalette. Idéal pour les entreprises de la région."
             }
         },
         {
             "@type": "Question",
-            "name": "TransPARENT's est-il assuré ?",
+            "name": "Le service de coursier TransPARENT's est-il assuré ?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Oui, TransPARENT's est une entreprise 100% assurée. Tous nos transports sont couverts par une assurance professionnelle qui protège vos marchandises pendant tout le trajet."
+                "text": "Absolument. TransPARENT's est une entreprise 100% assurée. Tous les transports sont couverts par notre assurance professionnelle responsabilité civile. Vos marchandises sont protégées pendant tout le trajet, de la prise en charge à la livraison. Certificat d'assurance disponible sur demande."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Comment contacter TransPARENT's pour un devis coursier ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pour obtenir un devis gratuit et rapide chez TransPARENT's : appelez le 07 88 47 80 44 (réponse en moins de 2 minutes), ou envoyez un email à transparentsmain@outlook.com. Nous sommes disponibles du lundi au vendredi de 8h à 19h et le samedi de 9h à 17h."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Quelles villes sont couvertes par TransPARENT's ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "TransPARENT's couvre toute la région Hauts-de-France : Valenciennes et Valenciennois, Lille et métropole lilloise (Roubaix, Tourcoing, Villeneuve-d'Ascq), Cambrai et Cambrésis, Avesnes-sur-Helpe et Avesnois, Douai, Arras. Livraisons ponctuelles vers Paris et Belgique sur demande."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "TransPARENT's propose-t-il des livraisons écologiques ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Oui, TransPARENT's propose des livraisons éco-responsables en vélo cargo électrique pour les centres-villes de Valenciennes et Lille. Cette solution verte est idéale pour réduire l'empreinte carbone de vos livraisons tout en garantissant rapidité et ponctualité."
             }
         }
     ]
 };
 
-// BreadcrumbList Schema
+// 3. WebSite Schema with SearchAction (Sitelinks)
+const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://transparents.city/#website",
+    "url": "https://transparents.city",
+    "name": "TransPARENT's - Coursier Express Valenciennes Lille Cambrai",
+    "description": "Service de coursier et livraison express le jour même à Valenciennes, Lille, Cambrai et Hauts-de-France. Devis gratuit en 2 minutes.",
+    "inLanguage": "fr-FR",
+    "publisher": { "@id": "https://transparents.city/#organization" }
+};
+
+// 4. BreadcrumbList Schema
 const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -209,15 +281,46 @@ const breadcrumbSchema = {
     ]
 };
 
-// WebSite Schema for Sitelinks Search
-const websiteSchema = {
+// 5. Speakable Schema (Voice Search Optimization)
+const speakableSchema = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
+    "@type": "WebPage",
+    "@id": "https://transparents.city/#webpage",
     "url": "https://transparents.city",
-    "name": "TransPARENT's - Coursier Express Hauts-de-France",
-    "description": "Service de coursier et livraison express à Valenciennes, Lille, Cambrai. Livraison le jour même.",
+    "name": "TransPARENT's - Coursier Express Valenciennes Lille Cambrai | Livraison Jour Même",
+    "description": "Coursier express de confiance à Valenciennes, Lille et Cambrai. Livraison urgente de colis le jour même. 100% assuré. Devis gratuit.",
     "inLanguage": "fr-FR",
-    "publisher": { "@id": "https://transparents.city/#business" }
+    "isPartOf": { "@id": "https://transparents.city/#website" },
+    "about": { "@id": "https://transparents.city/#organization" },
+    "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".hero-value-prop", ".trust-subtitle", ".hero-subtitle"]
+    },
+    "mainEntity": { "@id": "https://transparents.city/#organization" }
+};
+
+// 6. Organization Schema (Knowledge Graph)
+const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://transparents.city/#org",
+    "name": "TransPARENT's",
+    "url": "https://transparents.city",
+    "logo": "https://transparents.city/logo.png",
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+33788478044",
+        "contactType": "customer service",
+        "areaServed": "FR",
+        "availableLanguage": "French"
+    },
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Valenciennes",
+        "addressRegion": "Hauts-de-France",
+        "addressCountry": "FR"
+    },
+    "sameAs": []
 };
 
 function MyApp({ Component, pageProps }) {
@@ -230,54 +333,90 @@ function MyApp({ Component, pageProps }) {
                 {/* Favicon & Icons */}
                 <link rel="icon" type="image/png" href="/favicon.png" />
                 <link rel="apple-touch-icon" href="/logo.png" />
+                <link rel="manifest" href="/manifest.json" />
 
                 {/* Preconnect for performance */}
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+                <link rel="dns-prefetch" href="https://www.google-analytics.com" />
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
-                {/* Primary Meta Tags - GEO Optimized */}
-                <title>TransPARENT&apos;s | Coursier Express Valenciennes Lille Cambrai | Livraison Jour Même</title>
-                <meta name="title" content="TransPARENT's | Coursier Express Valenciennes Lille Cambrai | Livraison Jour Même" />
-                <meta name="description" content="🚚 Coursier express à Valenciennes, Lille, Cambrai. Livraison urgente de colis le jour même. ✅ 100% assuré ⚡ Devis en 2 min ☎️ 07 88 47 80 44. TransPARENT's, votre coursier de confiance dans les Hauts-de-France." />
-                <meta name="keywords" content="coursier Valenciennes, livraison express Lille, transport colis Cambrai, coursier Hauts-de-France, livraison urgente Nord, coursier professionnel 59, livraison jour même, coursier Avesnois, transport express régional, devis coursier gratuit" />
+                {/* ============================================ */}
+                {/* PRIMARY SEO META TAGS - GEO OPTIMIZED 2026 */}
+                {/* ============================================ */}
+
+                {/* Title - Primary keyword first, brand last */}
+                <title>Coursier Express Valenciennes Lille Cambrai | Livraison Jour Même | TransPARENT&apos;s</title>
+                <meta name="title" content="Coursier Express Valenciennes Lille Cambrai | Livraison Jour Même | TransPARENT's" />
+
+                {/* Description - Answer-first format for AI citation */}
+                <meta name="description" content="TransPARENT's est le coursier express de confiance à Valenciennes, Lille et Cambrai. ✅ Livraison urgente le jour même ✅ 100% assuré ✅ Devis gratuit en 2 min ☎️ 07 88 47 80 44. Transport de colis, documents et palettes dans les Hauts-de-France." />
+
+                {/* Keywords - Long-tail focused */}
+                <meta name="keywords" content="coursier Valenciennes, coursier express Lille, livraison urgente Cambrai, transport colis Hauts-de-France, coursier professionnel Nord, livraison jour même 59, devis coursier gratuit, transport palettes Valenciennes, livraison documents Lille, coursier assuré Cambrai, livraison express régionale, coursier B2B entreprise" />
+
                 <meta name="author" content="TransPARENT's" />
                 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
                 <meta name="language" content="French" />
-                <meta name="revisit-after" content="7 days" />
+                <meta name="revisit-after" content="3 days" />
+                <meta name="rating" content="general" />
+                <meta name="distribution" content="global" />
 
-                {/* GEO Meta Tags - Enhanced for Local SEO */}
+                {/* ============================================ */}
+                {/* GEO META TAGS - LOCAL SEO */}
+                {/* ============================================ */}
                 <meta name="geo.region" content="FR-HDF" />
-                <meta name="geo.placename" content="Valenciennes, Nord, France" />
+                <meta name="geo.placename" content="Valenciennes, Nord, Hauts-de-France, France" />
                 <meta name="geo.position" content="50.3570;3.5235" />
                 <meta name="ICBM" content="50.3570, 3.5235" />
-                <meta name="DC.title" content="TransPARENT's - Coursier Express Valenciennes" />
+                <meta name="DC.title" content="TransPARENT's - Coursier Express Valenciennes Lille Cambrai" />
+                <meta name="DC.creator" content="TransPARENT's" />
+                <meta name="DC.subject" content="Coursier express, livraison urgente, transport colis" />
+                <meta name="DC.description" content="Service de coursier et livraison express à Valenciennes" />
+                <meta name="DC.publisher" content="TransPARENT's" />
+                <meta name="DC.language" content="fr" />
+                <meta name="DC.coverage" content="Hauts-de-France, France" />
 
-                {/* Open Graph / Facebook - Enhanced */}
+                {/* ============================================ */}
+                {/* OPEN GRAPH - SOCIAL SHARING */}
+                {/* ============================================ */}
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://transparents.city" />
-                <meta property="og:title" content="TransPARENT's | Coursier Express Valenciennes Lille Cambrai" />
-                <meta property="og:description" content="Livraison urgente de colis le jour même à Valenciennes, Lille, Cambrai. Service rapide, fiable et 100% assuré. Devis gratuit en 2 minutes." />
+                <meta property="og:title" content="Coursier Express Valenciennes Lille Cambrai | TransPARENT's" />
+                <meta property="og:description" content="Livraison urgente le jour même. 100% assuré. Devis gratuit en 2 minutes. ☎️ 07 88 47 80 44" />
                 <meta property="og:image" content="https://transparents.city/van.jpg" />
-                <meta property="og:image:alt" content="Véhicule TransPARENT's - Coursier Express" />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
+                <meta property="og:image:alt" content="Véhicule TransPARENT's - Coursier Express Valenciennes Lille" />
                 <meta property="og:locale" content="fr_FR" />
                 <meta property="og:site_name" content="TransPARENT's" />
 
-                {/* Twitter Card */}
-                <meta property="twitter:card" content="summary_large_image" />
-                <meta property="twitter:url" content="https://transparents.city" />
-                <meta property="twitter:title" content="TransPARENT's | Coursier Express Valenciennes Lille Cambrai" />
-                <meta property="twitter:description" content="Livraison urgente de colis le jour même. Service rapide, fiable et 100% assuré. ☎️ 07 88 47 80 44" />
-                <meta property="twitter:image" content="https://transparents.city/van.jpg" />
+                {/* ============================================ */}
+                {/* TWITTER CARD */}
+                {/* ============================================ */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:url" content="https://transparents.city" />
+                <meta name="twitter:title" content="Coursier Express Valenciennes Lille Cambrai | TransPARENT's" />
+                <meta name="twitter:description" content="Livraison urgente le jour même. 100% assuré. Devis gratuit. ☎️ 07 88 47 80 44" />
+                <meta name="twitter:image" content="https://transparents.city/van.jpg" />
+                <meta name="twitter:image:alt" content="TransPARENT's Coursier Express" />
 
-                {/* Mobile Optimization */}
+                {/* ============================================ */}
+                {/* MOBILE & PWA */}
+                {/* ============================================ */}
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
                 <meta name="theme-color" content="#00d9ff" />
                 <meta name="mobile-web-app-capable" content="yes" />
                 <meta name="apple-mobile-web-app-capable" content="yes" />
                 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+                <meta name="apple-mobile-web-app-title" content="TransPARENT's" />
+                <meta name="application-name" content="TransPARENT's" />
+                <meta name="msapplication-TileColor" content="#00d9ff" />
+                <meta name="format-detection" content="telephone=yes" />
 
-                {/* Schema.org Structured Data - Multiple Types for GEO */}
+                {/* ============================================ */}
+                {/* SCHEMA.ORG STRUCTURED DATA - 6 TYPES */}
+                {/* ============================================ */}
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
@@ -288,11 +427,19 @@ function MyApp({ Component, pageProps }) {
                 />
                 <script
                     type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+                />
+                <script
+                    type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
                 />
                 <script
                     type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }}
+                />
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
                 />
             </Head>
             <Component {...pageProps} />

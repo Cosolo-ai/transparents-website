@@ -1,23 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+    
+    <!-- Homepage - Primary Landing Page -->
     <url>
         <loc>https://transparents.city</loc>
         <lastmod>2026-01-08</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
+        
+        <!-- Alternate language versions -->
+        <xhtml:link rel="alternate" hreflang="fr" href="https://transparents.city" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://transparents.city" />
+        
+        <!-- Image sitemap entries for Image SEO -->
         <image:image>
             <image:loc>https://transparents.city/logo.png</image:loc>
-            <image:title>Logo TransPARENT's Coursier Express</image:title>
+            <image:title>Logo TransPARENT's Coursier Express Valenciennes</image:title>
+            <image:caption>Logo officiel TransPARENT's - Service de coursier express dans les Hauts-de-France</image:caption>
+            <image:geo_location>Valenciennes, France</image:geo_location>
         </image:image>
+        
         <image:image>
             <image:loc>https://transparents.city/van.jpg</image:loc>
-            <image:title>Véhicule utilitaire TransPARENT's</image:title>
+            <image:title>Véhicule utilitaire TransPARENT's coursier Valenciennes Lille</image:title>
+            <image:caption>Utilitaire TransPARENT's pour livraison express de colis dans les Hauts-de-France</image:caption>
+            <image:geo_location>Valenciennes, France</image:geo_location>
         </image:image>
+        
         <image:image>
             <image:loc>https://transparents.city/scooter.jpg</image:loc>
-            <image:title>Scooter de livraison TransPARENT's</image:title>
+            <image:title>Scooter livraison TransPARENT's centre-ville Valenciennes</image:title>
+            <image:caption>Scooter de livraison pour courses urgentes en centre-ville</image:caption>
+            <image:geo_location>Valenciennes, France</image:geo_location>
+        </image:image>
+        
+        <image:image>
+            <image:loc>https://transparents.city/pallet.jpg</image:loc>
+            <image:title>Transport palettes TransPARENT's B2B Lille Cambrai</image:title>
+            <image:caption>Transport de palettes et gros volumes pour entreprises dans les Hauts-de-France</image:caption>
+            <image:geo_location>Valenciennes, France</image:geo_location>
+        </image:image>
+        
+        <image:image>
+            <image:loc>https://transparents.city/van-cargo.jpg</image:loc>
+            <image:title>Espace cargo isolé TransPARENT's transport colis fragiles</image:title>
+            <image:caption>Espace cargo avec protection thermique pour colis fragiles et alimentaires</image:caption>
+            <image:geo_location>Valenciennes, France</image:geo_location>
+        </image:image>
+        
+        <image:image>
+            <image:loc>https://transparents.city/ebike.jpg</image:loc>
+            <image:title>Vélo cargo électrique TransPARENT's livraison écologique</image:title>
+            <image:caption>Livraison éco-responsable en vélo cargo électrique dans le centre de Valenciennes</image:caption>
+            <image:geo_location>Valenciennes, France</image:geo_location>
         </image:image>
     </url>
+    
 </urlset>
