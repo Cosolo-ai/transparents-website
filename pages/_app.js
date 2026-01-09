@@ -121,14 +121,6 @@ const localBusinessSchema = {
         "@type": "Person",
         "name": "TransPARENT's Founder"
     },
-    // E-E-A-T: Aggregate Rating
-    "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "15",
-        "bestRating": "5",
-        "worstRating": "1"
-    },
     // Services offered
     "hasOfferCatalog": {
         "@type": "OfferCatalog",
