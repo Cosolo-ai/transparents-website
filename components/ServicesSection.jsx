@@ -18,7 +18,7 @@ export const ServicesSection = (props) => {
         <div className="services outer" data-sb-field-path={props['data-sb-field-path']}>
             <div className="services-container inner">
                 <h2 className="section-heading" data-sb-field-path=".heading" ref={headingRef}>
-                    {props.heading || 'Nos services de coursier express'}
+                    Services de coursier express Valenciennes, Lille, Cambrai
                 </h2>
                 <div className="services-grid" ref={gridRef}>
                     {services.map((service, idx) => (

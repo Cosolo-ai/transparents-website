@@ -5,9 +5,11 @@ export const TrustSection = (props) => {
     const headingRef = useFadeInUp(0);
     const gridRef = useStaggerChildren(0.15, 0.2);
 
+    // SEO-optimized fleet items with keyword-rich alt tags
     const fleetItems = [
         {
             image: '/van.jpg',
+            alt: 'Véhicule utilitaire TransPARENT\'s - Coursier express Valenciennes Lille',
             title: 'Utilitaire léger',
             description: 'Livraisons rapides en ville',
             icon: 'bi-truck',
@@ -15,6 +17,7 @@ export const TrustSection = (props) => {
         },
         {
             image: '/scooter.jpg',
+            alt: 'Scooter de livraison TransPARENT\'s - Livraison urgente centre-ville Valenciennes',
             title: 'Scooter de livraison',
             description: 'Urgences centre-ville',
             icon: 'bi-bicycle',
@@ -22,6 +25,7 @@ export const TrustSection = (props) => {
         },
         {
             image: '/van-cargo.jpg',
+            alt: 'Espace cargo isolé TransPARENT\'s - Transport colis fragiles Hauts-de-France',
             title: 'Espace cargo isolé',
             description: 'Colis fragiles & alimentaires',
             icon: 'bi-box-seam',
@@ -29,6 +33,7 @@ export const TrustSection = (props) => {
         },
         {
             image: '/pallet.jpg',
+            alt: 'Transport palettes TransPARENT\'s - Livraison B2B gros volumes Lille Cambrai',
             title: 'Transport palettes',
             description: 'Grandes quantités B2B',
             icon: 'bi-boxes',
@@ -36,6 +41,7 @@ export const TrustSection = (props) => {
         },
         {
             image: '/ebike.jpg',
+            alt: 'Vélo cargo électrique TransPARENT\'s - Livraison écologique Valenciennes',
             title: 'Vélo cargo électrique',
             description: 'Livraison écologique',
             icon: 'bi-lightning-charge',
@@ -46,19 +52,26 @@ export const TrustSection = (props) => {
     return (
         <section className="trust-section" data-sb-field-path={props['data-sb-field-path']}>
             <div className="inner">
+                {/* H2 with keywords */}
                 <h2 className="section-title" ref={headingRef}>
                     <i className="bi bi-truck glow-icon"></i>
-                    Notre flotte adaptée à vos besoins
+                    Flotte de livraison express Valenciennes, Lille, Cambrai
                 </h2>
                 <p className="trust-subtitle">
-                    Du petit colis urgent à la palette complète, nous avons la solution
+                    Du petit colis urgent à la palette complète : transport adapté à vos besoins dans les Hauts-de-France
                 </p>
 
                 <div className="fleet-grid" ref={gridRef}>
                     {fleetItems.map((item, idx) => (
                         <div className={`fleet-card ${idx === 0 ? 'fleet-card-featured' : ''}`} key={idx}>
                             <div className="fleet-image-container">
-                                <img src={item.image} alt={item.title} loading="lazy" />
+                                <img
+                                    src={item.image}
+                                    alt={item.alt}
+                                    loading="lazy"
+                                    width="300"
+                                    height="400"
+                                />
                                 <div className="fleet-image-overlay"></div>
                                 <span className="fleet-highlight">
                                     <i className={`bi ${item.icon}`}></i>
@@ -80,7 +93,7 @@ export const TrustSection = (props) => {
                     </div>
                     <div className="trust-badge">
                         <i className="bi bi-clock-history"></i>
-                        <span>Livraison le jour même</span>
+                        <span>Livraison jour même</span>
                     </div>
                     <div className="trust-badge">
                         <i className="bi bi-geo-alt"></i>

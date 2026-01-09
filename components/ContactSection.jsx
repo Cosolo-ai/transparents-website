@@ -10,7 +10,7 @@ export const ContactSection = (props) => {
         <div className="contact outer" data-sb-field-path={props['data-sb-field-path']}>
             <div className="contact-container inner">
                 <h2 className="section-heading" data-sb-field-path=".heading" ref={headingRef}>
-                    {props.heading || 'Contact'}
+                    Contactez votre coursier express Valenciennes
                 </h2>
                 <div className="contact-grid" ref={gridRef}>
                     <a href="tel:+33788478044" className="contact-item contact-phone" ref={phoneRef}>

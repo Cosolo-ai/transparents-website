@@ -13,22 +13,29 @@ export const HeroSection = (props) => {
                 {/* Logo + Company Name */}
                 <div className="hero-brand">
                     <div className="hero-logo">
-                        <img src="/logo.png" alt="TransPARENT's" />
+                        <img
+                            src="/logo.png"
+                            alt="TransPARENT's - Coursier Express Valenciennes Lille Cambrai - Logo"
+                            width="80"
+                            height="80"
+                        />
                     </div>
                     <div className="hero-brand-text">
-                        <span className="brand-name">TransPARENT&apos;s</span>
+                        {/* H1 with primary keywords */}
+                        <h1 className="brand-name">TransPARENT&apos;s</h1>
                         <span className="brand-tagline">Votre coursier express de confiance</span>
                     </div>
                 </div>
 
-                <p className="hero-subtitle">
-                    Valenciennes • Lille • Cambrai • Avesnois
-                </p>
+                {/* Secondary H2 with geo keywords */}
+                <h2 className="hero-subtitle">
+                    Coursier Express Valenciennes • Lille • Cambrai • Avesnois
+                </h2>
 
                 {/* Value proposition - short and punchy */}
                 <p className="hero-value-prop">
-                    Livraison urgente de colis le jour même.<br />
-                    Service rapide, fiable et transparent.
+                    Livraison urgente de colis le jour même dans les Hauts-de-France.<br />
+                    Service rapide, fiable et 100% assuré.
                 </p>
 
                 {props.buttons?.length > 0 && (
@@ -40,14 +47,14 @@ export const HeroSection = (props) => {
                 )}
 
                 <p className="hero-cta-text">
-                    <i className="bi bi-clock glow-icon-inline"></i> Devis en 2 minutes
+                    <i className="bi bi-clock glow-icon-inline"></i> Devis gratuit en 2 minutes
                 </p>
             </div>
             <div className="hero-glow"></div>
             <div className="hero-grid"></div>
 
             {/* Sticky mobile CTA */}
-            <a href="tel:+33788478044" className="sticky-cta">
+            <a href="tel:+33788478044" className="sticky-cta" aria-label="Appeler TransPARENT's coursier Valenciennes">
                 <i className="bi bi-telephone-fill"></i>
                 <span>Appeler</span>
             </a>

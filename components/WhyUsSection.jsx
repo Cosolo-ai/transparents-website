@@ -17,7 +17,7 @@ export const WhyUsSection = (props) => {
         <div className="why-us outer" data-sb-field-path={props['data-sb-field-path']}>
             <div className="why-us-container inner">
                 <h2 className="section-heading" data-sb-field-path=".heading" ref={headingRef}>
-                    {props.heading || "Pourquoi choisir TransPARENT's ?"}
+                    Pourquoi choisir TransPARENT&apos;s pour vos livraisons express ?
                 </h2>
                 <div className="benefits-list" ref={listRef}>
                     {benefits.map((benefit, idx) => (

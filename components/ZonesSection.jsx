@@ -17,7 +17,7 @@ export const ZonesSection = (props) => {
         <div className="zones outer" data-sb-field-path={props['data-sb-field-path']}>
             <div className="zones-container inner">
                 <h2 className="section-heading" data-sb-field-path=".heading" ref={headingRef}>
-                    {props.heading || "Zones d'intervention"}
+                    Zones de livraison coursier : Valenciennes, Lille, Cambrai, Hauts-de-France
                 </h2>
                 <p className="zones-intro">Nous intervenons rapidement sur :</p>
                 <div className="zones-list" ref={listRef}>
